@@ -13,14 +13,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  // @override
-  // void dispose() {
-  //   context.read<LoginController>().emailController.dispose();
-  //   context.read<LoginController>().passwordController.dispose();
-  //   super.dispose();
-  // }
-
-  // ── UI ──────────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
     final controller = context.read<LoginController>();
@@ -41,7 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
 
                   children: [
-                    // ── Logo ──
                     Center(
                       child: Column(
                         children: [
@@ -85,7 +76,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     SizedBox(height: Screens.padingHeight(context) * 0.05),
 
-                    // ── Email Field ──
                     _buildLabel('Email'),
                     SizedBox(height: Screens.padingHeight(context) * 0.02),
                     TextFormField(
@@ -106,7 +96,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     SizedBox(height: Screens.padingHeight(context) * 0.035),
 
-                    // ── Password Field ──
                     _buildLabel('Password'),
                     SizedBox(height: Screens.padingHeight(context) * 0.02),
                     TextFormField(
@@ -142,7 +131,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     SizedBox(height: Screens.padingHeight(context) * 0.02),
 
-                    // ── Login Button ──
                     InkWell(
                       onTap: () {
                         controllerwatch.isLoading
@@ -189,8 +177,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
-  // ── Helpers ─────────────────────────────────────────────
 
   Widget _buildLabel(String text) {
     return Text(
