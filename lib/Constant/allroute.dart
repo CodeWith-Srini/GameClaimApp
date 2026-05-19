@@ -9,7 +9,7 @@ class Routes {
     GetPage<dynamic>(
       name: ConstantRoute.loginpage,
       page: () => LoginScreen(),
-      transition: Transition.fade,
+      transition: Transition.cupertino,
       transitionDuration: Duration(seconds: 1),
     ),
     GetPage<dynamic>(

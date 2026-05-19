@@ -48,11 +48,12 @@
 //
 // ============================================================
 
-import 'package:Claimit_app/Constant/constantroute.dart';
 import 'package:Claimit_app/Constant/screens.dart';
+import 'package:Claimit_app/Controller/login_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:get/get.dart';
+
+import 'package:glass_kit/glass_kit.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -62,261 +63,153 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-
-  bool _isLoading = false;
-  bool _obscurePassword = true;
-
-  // ── Email / Password Login ──────────────────────────────
-  Future<void> _loginWithEmail() async {
-    if (!_formKey.currentState!.validate()) return;
-
-    setState(() => _isLoading = true);
-
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-
-      // Navigate to home screen after login
-      if (mounted) {
-        // Navigator.pushReplacementNamed(context, '/home');
-        Get.offAllNamed(ConstantRoute.dashboard);
-      }
-    } on FirebaseAuthException catch (e) {
-      String message = 'Login failed';
-
-      if (e.code == 'user-not-found') {
-        message = 'No account found with this email';
-      } else if (e.code == 'wrong-password') {
-        message = 'Wrong password';
-      } else if (e.code == 'invalid-email') {
-        message = 'Invalid email address';
-      } else if (e.code == 'too-many-requests') {
-        message = 'Too many attempts. Try again later';
-      }
-
-      _showSnackbar(message, isError: true);
-    } finally {
-      if (mounted) setState(() => _isLoading = false);
-    }
-  }
-
-  // ── Google Sign In ──────────────────────────────────────
-  // Future<void> _loginWithGoogle() async {
-  //   setState(() => _isLoading = true);
-
-  //   try {
-  //     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-  //     if (googleUser == null) {
-  //       setState(() => _isLoading = false);
-  //       return; // User cancelled
-  //     }
-
-  //     final GoogleSignInAuthentication googleAuth =
-  //         await googleUser.authentication;
-
-  //     final credential = GoogleAuthProvider.credential(
-  //       accessToken: googleAuth.accessToken,
-  //       idToken: googleAuth.idToken,
-  //     );
-
-  //     await FirebaseAuth.instance.signInWithCredential(credential);
-
-  //     if (mounted) {
-  //       Navigator.pushReplacementNamed(context, '/home');
-  //     }
-  //   } catch (e) {
-  //     _showSnackbar('Google sign-in failed. Try again.', isError: true);
-  //   } finally {
-  //     if (mounted) setState(() => _isLoading = false);
-  //   }
+  // @override
+  // void dispose() {
+  //   context.read<LoginController>().emailController.dispose();
+  //   context.read<LoginController>().passwordController.dispose();
+  //   super.dispose();
   // }
-
-  // ── Forgot Password ─────────────────────────────────────
-  Future<void> _forgotPassword() async {
-    if (_emailController.text.trim().isEmpty) {
-      _showSnackbar('Enter your email first');
-      return;
-    }
-
-    try {
-      await FirebaseAuth.instance.sendPasswordResetEmail(
-        email: _emailController.text.trim(),
-      );
-      _showSnackbar('Password reset email sent!');
-    } on FirebaseAuthException catch (e) {
-      _showSnackbar(e.message ?? 'Error sending reset email', isError: true);
-    }
-  }
-
-  void _showSnackbar(String message, {bool isError = false}) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: isError ? Colors.red : Colors.green,
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
 
   // ── UI ──────────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
+    final controller = context.read<LoginController>();
+    final controllerwatch = context.watch<LoginController>();
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: Screens.width(context) * 0.05,
                 vertical: Screens.padingHeight(context) * 0.02,
               ),
               child: Form(
-                key: _formKey,
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                key: controller.formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
 
-                    children: [
-                      // ── Logo ──
-                      Center(
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              width: Screens.width(context) * 0.17,
-                              height: Screens.padingHeight(context) * 0.085,
-                              decoration: BoxDecoration(
-                                // color: const Color(0xFF1A73E8),
-                                borderRadius: BorderRadius.circular(18),
-                                border: Border.all(color: Colors.white),
-                              ),
-                              child: Image.asset('Assets/launcher_icon.png'),
-                              // child: const Icon(
-                              //   Icons.bolt,
-                              //   color: Colors.white,
-                              //   size: 32,
-                              // ),
-                            ),
-                            SizedBox(
-                              height: Screens.padingHeight(context) * 0.02,
-                            ),
-                            const Text(
-                              'Welcome back',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: -0.5,
-                              ),
-                            ),
-                            SizedBox(
-                              height: Screens.padingHeight(context) * 0.01,
-                            ),
-                            Text(
-                              'Log in to Continue',
-                              style: TextStyle(
-                                color: Colors.grey[500],
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                  children: [
+                    // ── Logo ──
+                    Center(
+                      child: Column(
+                        children: [
+                          GlassContainer.clearGlass(
+                            padding: EdgeInsets.all(10),
+                            width: Screens.width(context) * 0.17,
+                            height: Screens.padingHeight(context) * 0.085,
 
-                      SizedBox(height: Screens.padingHeight(context) * 0.05),
-
-                      // ── Email Field ──
-                      _buildLabel('Email'),
-                      SizedBox(height: Screens.padingHeight(context) * 0.02),
-                      TextFormField(
-                        controller: _emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                        ),
-                        decoration: _inputDecoration(
-                          hint: 'you@gmail.com',
-                          prefixIcon: Icons.mail_outline,
-                        ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty)
-                            return 'Enter your email';
-                          if (!val.contains('@')) return 'Enter a valid email';
-                          return null;
-                        },
-                      ),
-
-                      SizedBox(height: Screens.padingHeight(context) * 0.035),
-
-                      // ── Password Field ──
-                      _buildLabel('Password'),
-                      SizedBox(height: Screens.padingHeight(context) * 0.02),
-                      TextFormField(
-                        controller: _passwordController,
-                        obscureText: _obscurePassword,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                        ),
-                        decoration: _inputDecoration(
-                          hint: '••••••••',
-                          prefixIcon: Icons.lock_outline,
-                          suffixIcon: GestureDetector(
-                            onTap:
-                                () => setState(
-                                  () => _obscurePassword = !_obscurePassword,
-                                ),
-                            child: Icon(
-                              _obscurePassword
-                                  ? Icons.visibility_off_outlined
-                                  : Icons.visibility_outlined,
-                              color: Colors.grey[600],
-                              size: 20,
+                            borderRadius: BorderRadius.circular(40),
+                            blur: 5,
+                            color: Colors.white.withOpacity(0.1),
+                            borderWidth: 0.5,
+                            elevation: 10,
+                            child: Image.asset('Assets/launcher_icon.png'),
+                          ),
+                          SizedBox(
+                            height: Screens.padingHeight(context) * 0.02,
+                          ),
+                          Text(
+                            'Welcome back 😎',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: -0.5,
                             ),
                           ),
-                        ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty)
-                            return 'Enter your password';
-                          if (val.length < 6) return 'Minimum 6 characters';
-                          return null;
-                        },
+                          SizedBox(
+                            height: Screens.padingHeight(context) * 0.01,
+                          ),
+                          Text(
+                            'Log in to Continue',
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
                       ),
+                    ),
 
-                      SizedBox(height: Screens.padingHeight(context) * 0.02),
+                    SizedBox(height: Screens.padingHeight(context) * 0.05),
 
-                      // ── Login Button ──
-                      SizedBox(
-                        width: Screens.width(context),
+                    // ── Email Field ──
+                    _buildLabel('Email'),
+                    SizedBox(height: Screens.padingHeight(context) * 0.02),
+                    TextFormField(
+                      controller: LoginController.emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      style: const TextStyle(color: Colors.white, fontSize: 15),
+                      decoration: _inputDecoration(
+                        hint: 'you@gmail.com',
+                        prefixIcon: Icons.mail_outline,
+                      ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty)
+                          return 'Enter your email';
+                        if (!val.contains('@')) return 'Enter a valid email';
+                        return null;
+                      },
+                    ),
+
+                    SizedBox(height: Screens.padingHeight(context) * 0.035),
+
+                    // ── Password Field ──
+                    _buildLabel('Password'),
+                    SizedBox(height: Screens.padingHeight(context) * 0.02),
+                    TextFormField(
+                      controller: LoginController.passwordController,
+                      obscureText: controller.obscurePassword,
+                      style: const TextStyle(color: Colors.white, fontSize: 15),
+                      decoration: _inputDecoration(
+                        hint: '••••••••',
+                        prefixIcon: Icons.lock_outline,
+                        suffixIcon: GestureDetector(
+                          onTap:
+                              () => setState(
+                                () =>
+                                    controller.obscurePassword =
+                                        !controller.obscurePassword,
+                              ),
+                          child: Icon(
+                            controllerwatch.obscurePassword
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility_outlined,
+                            color: Colors.grey[600],
+                            size: 20,
+                          ),
+                        ),
+                      ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty)
+                          return 'Enter your password';
+                        if (val.length < 6) return 'Minimum 6 characters';
+                        return null;
+                      },
+                    ),
+
+                    SizedBox(height: Screens.padingHeight(context) * 0.02),
+
+                    // ── Login Button ──
+                    InkWell(
+                      onTap: () {
+                        controllerwatch.isLoading
+                            ? null
+                            : controller.loginWithEmail(context);
+                      },
+                      child: GlassContainer.clearGlass(
                         height: Screens.padingHeight(context) * 0.065,
-                        child: ElevatedButton(
-                          onPressed: _isLoading ? null : _loginWithEmail,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF1A73E8),
-                            foregroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(14),
-                            ),
-                            elevation: 0,
-                          ),
+                        width: Screens.width(context),
+                        borderRadius: BorderRadius.circular(10),
+                        blur: 5,
+                        color: Colors.white.withOpacity(0.1),
+                        borderWidth: 0.5,
+                        elevation: 10,
+                        child: Center(
                           child:
-                              _isLoading
+                              controllerwatch.isLoading
                                   ? SizedBox(
                                     width: Screens.width(context) * 0.06,
                                     height:
@@ -326,21 +219,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                       color: Colors.white,
                                     ),
                                   )
-                                  : const Text(
+                                  : Text(
                                     'Log In',
                                     style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
+                                      color: Colors.white,
                                     ),
                                   ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

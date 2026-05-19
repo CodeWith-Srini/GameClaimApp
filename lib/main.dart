@@ -1,3 +1,4 @@
+import 'package:Claimit_app/Controller/login_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SplashCtrl()),
+        ChangeNotifierProvider(create: (_) => LoginController()),
         ChangeNotifierProvider(create: (_) => Dashboardcrtl()),
       ],
       child: ChangeNotifierProvider(
