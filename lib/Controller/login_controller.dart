@@ -13,7 +13,7 @@ class LoginController extends ChangeNotifier {
   bool isLoading = false;
   bool obscurePassword = true;
 
-  // ── Email / Password Login ──────────────────────────────
+  // ── Email / Password Login ── //
   loginWithEmail(context) async {
     if (!formKey.currentState!.validate()) return;
 
@@ -34,7 +34,7 @@ class LoginController extends ChangeNotifier {
       passwordController.clear();
       notifyListeners();
 
-      // Navigate to home screen after login
+      // Navigate to home screen after login //
 
       Get.offAllNamed(ConstantRoute.dashboard);
     } on FirebaseAuthException catch (e) {
@@ -57,7 +57,7 @@ class LoginController extends ChangeNotifier {
     }
   }
 
-  // ── Google Sign In ──────────────────────────────────────
+  // ── Google Sign In ── //
   // Future<void> _loginWithGoogle() async {
   //   setState(() => _isLoading = true);
 
@@ -88,7 +88,7 @@ class LoginController extends ChangeNotifier {
   //   }
   // }
 
-  // ── Forgot Password ─────────────────────────────────────
+  // ── Forgot Password ──//
   Future<void> forgotPassword(context) async {
     if (emailController.text.trim().isEmpty) {
       showSnackbar(context, 'Enter your email first');
