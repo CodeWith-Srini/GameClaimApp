@@ -99,22 +99,29 @@ class _SettingPageState extends State<SettingPage> {
                 ],
               ),
               SizedBox(height: Screens.padingHeight(context) * 0.03),
-              Row(
-                children: [
-                  Image.asset('Assets/git.png', scale: 1.5),
-                  SizedBox(width: Screens.width(context) * 0.02),
-                  SizedBox(
-                    width: Screens.width(context) * 0.7,
-                    child: Text(
-                      'View In GitHub',
-                      style: theme.textTheme.bodyMedium!.copyWith(
-                        color: Colors.white,
-                        fontFamily: GoogleFonts.exo2().fontFamily,
-                        letterSpacing: 1,
+              InkWell(
+                onTap: () {
+                  context.read<Dashboardcrtl>().openLink(
+                    "https://github.com/srinibuson/GameClaimApp/releases",
+                  );
+                },
+                child: Row(
+                  children: [
+                    Image.asset('Assets/git.png', scale: 1.5),
+                    SizedBox(width: Screens.width(context) * 0.02),
+                    SizedBox(
+                      width: Screens.width(context) * 0.7,
+                      child: Text(
+                        'View In GitHub',
+                        style: theme.textTheme.bodyMedium!.copyWith(
+                          color: Colors.white,
+                          fontFamily: GoogleFonts.exo2().fontFamily,
+                          letterSpacing: 1,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(height: Screens.padingHeight(context) * 0.03),
               Row(
