@@ -15,6 +15,15 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      context.read<Dashboardcrtl>().init();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final controller = context.watch<Dashboardcrtl>();
     return PopScope(

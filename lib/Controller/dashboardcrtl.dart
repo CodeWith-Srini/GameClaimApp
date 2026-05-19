@@ -13,6 +13,10 @@ import 'package:url_launcher/url_launcher.dart';
 class Dashboardcrtl extends ChangeNotifier {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
+  init() {
+    selectedindex = 0;
+  }
+
   int selectedindex = 0;
   List<Widget>? nav = [
     ItemsPage(),

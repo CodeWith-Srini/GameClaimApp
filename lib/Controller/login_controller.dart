@@ -30,6 +30,8 @@ class LoginController extends ChangeNotifier {
       await HelperFunction.setPasswordSP(passwordController.text);
       await HelperFunction.setIsLoggedIn(true);
       ConstantValues.usermail = emailController.text;
+      emailController.clear();
+      passwordController.clear();
       notifyListeners();
 
       // Navigate to home screen after login
