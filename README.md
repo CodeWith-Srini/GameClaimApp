@@ -141,7 +141,7 @@ Feel free to fork and build your own version!
 **Srinivas**
 Flutter Developer · Building ClaimIt as a portfolio project
 
-[![GitHub](https://img.shields.io/badge/GitHub-srinibuson-181717?style=flat&logo=github)](https://github.com/srinibuson)
+[![GitHub](https://img.shields.io/badge/GitHub-srinibuson-181717?style=flat&logo=github)](https://github.com/CodeWith-Srini)
 
 ---
 
