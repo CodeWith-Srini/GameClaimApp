@@ -1,4 +1,6 @@
 // services/firestore_service.dart
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -12,6 +14,7 @@ class FirestoreService {
 
   CollectionReference<Map<String, dynamic>> get _likedRef {
     final uid = _auth.currentUser!.uid;
+    log(_auth.currentUser!.email.toString());
     return _db.collection('users').doc(uid).collection('liked_giveaways');
   }
 

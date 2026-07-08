@@ -20,9 +20,7 @@ class _ItemsPageState extends State<ItemsPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((T) {
-      setState(() {});
-    });
+    WidgetsBinding.instance.addPostFrameCallback((T) {});
   }
 
   @override
