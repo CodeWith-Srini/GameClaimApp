@@ -23,11 +23,12 @@ class _LikeButtonState extends State<LikeButton> {
 
   Future<void> _checkLiked() async {
     final liked = await _service.isLiked(widget.gameData['id']);
-    if (mounted)
+    if (mounted) {
       setState(() {
         _isLiked = liked;
         _loading = false;
       });
+    }
   }
 
   Future<void> _toggle() async {

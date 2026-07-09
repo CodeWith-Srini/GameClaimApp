@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:Claimit_app/Constant/constantroute.dart';
+
 import 'package:Claimit_app/Constant/screens.dart';
 
 import 'package:Claimit_app/Controller/splashctrl.dart';
