@@ -1,5 +1,5 @@
-import 'package:Claimit_app/Constant/screens.dart';
-import 'package:Claimit_app/Controller/login_controller.dart';
+import 'package:claimit_app/Constant/screens.dart';
+import 'package:claimit_app/Controller/login_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:glass_kit/glass_kit.dart';

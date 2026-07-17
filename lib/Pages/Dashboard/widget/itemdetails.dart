@@ -1,11 +1,11 @@
-import 'package:Claimit_app/Pages/widget/liked.dart';
+import 'package:claimit_app/Pages/widget/liked.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
-import 'package:Claimit_app/Constant/screens.dart';
-import 'package:Claimit_app/Controller/dashboardcrtl.dart';
+import 'package:claimit_app/Constant/screens.dart';
+import 'package:claimit_app/Controller/dashboardcrtl.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
