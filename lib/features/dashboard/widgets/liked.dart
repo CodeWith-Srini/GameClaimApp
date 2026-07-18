@@ -1,5 +1,5 @@
 // widgets/like_button.dart
-import 'package:claimit_app/features/dashboard/services/firestore.dart';
+import 'package:claimit_app/features/dashboard/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 
 class LikeButton extends StatefulWidget {

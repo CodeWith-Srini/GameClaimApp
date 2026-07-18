@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:claimit_app/features/dashboard/models/giveawaymodel.dart';
+import 'package:claimit_app/features/dashboard/models/giveaway_model.dart';
 import 'package:http/http.dart' as http;
 
 class GiveawayAPI {

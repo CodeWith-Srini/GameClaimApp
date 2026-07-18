@@ -1,4 +1,4 @@
-import 'package:claimit_app/core/constants/app_routes.dart';
+import 'package:claimit_app/core/constants/route_names.dart';
 import 'package:claimit_app/core/constants/screen_sizes.dart';
 import 'package:claimit_app/core/storage/shared_pref.dart';
 import 'package:claimit_app/features/dashboard/widgets/favourite.dart';

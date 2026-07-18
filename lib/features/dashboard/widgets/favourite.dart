@@ -1,6 +1,6 @@
 // screens/favourites_screen.dart
 import 'package:claimit_app/core/constants/screen_sizes.dart';
-import 'package:claimit_app/features/dashboard/services/firestore.dart';
+import 'package:claimit_app/features/dashboard/services/firestore_service.dart';
 import 'package:claimit_app/features/dashboard/widgets/itemdetails.dart';
 
 import 'package:flutter/material.dart';

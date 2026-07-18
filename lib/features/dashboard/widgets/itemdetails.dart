@@ -1,5 +1,5 @@
 import 'package:claimit_app/core/constants/screen_sizes.dart';
-import 'package:claimit_app/features/dashboard/controller/dashboard_controller.dart';
+import 'package:claimit_app/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:claimit_app/features/dashboard/widgets/liked.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

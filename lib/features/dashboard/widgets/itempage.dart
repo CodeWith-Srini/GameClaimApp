@@ -1,5 +1,5 @@
 import 'package:claimit_app/core/constants/screen_sizes.dart';
-import 'package:claimit_app/features/auth/controller/splash_controller.dart';
+import 'package:claimit_app/features/auth/controllers/splash_controller.dart';
 import 'package:claimit_app/features/dashboard/widgets/itemdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
