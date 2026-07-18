@@ -1,11 +1,10 @@
+import 'package:Claimit_app/core/constants/screen_sizes.dart';
+import 'package:Claimit_app/features/auth/controller/splash_controller.dart';
+import 'package:Claimit_app/features/dashboard/widgets/itemdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:Claimit_app/Constant/constantroute.dart';
-import 'package:Claimit_app/Constant/screens.dart';
 
-import 'package:Claimit_app/Controller/splashctrl.dart';
-import 'package:Claimit_app/Pages/Dashboard/widget/itemdetails.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 

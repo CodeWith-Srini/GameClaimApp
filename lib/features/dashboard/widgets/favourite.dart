@@ -1,8 +1,8 @@
 // screens/favourites_screen.dart
-import 'package:Claimit_app/Constant/constantroute.dart';
-import 'package:Claimit_app/Constant/screens.dart';
-import 'package:Claimit_app/Pages/Dashboard/widget/itemdetails.dart';
-import 'package:Claimit_app/Service/firestore.dart';
+import 'package:Claimit_app/core/constants/screen_sizes.dart';
+import 'package:Claimit_app/features/dashboard/services/firestore.dart';
+import 'package:Claimit_app/features/dashboard/widgets/itemdetails.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

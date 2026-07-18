@@ -1,8 +1,8 @@
-import 'package:Claimit_app/Constant/constantvalue.dart';
-import 'package:Claimit_app/Controller/dashboardcrtl.dart';
+import 'package:Claimit_app/core/constants/app_constants.dart';
+import 'package:Claimit_app/core/constants/screen_sizes.dart';
+import 'package:Claimit_app/features/dashboard/controller/dashboard_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:Claimit_app/Constant/screens.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {

@@ -1,12 +1,12 @@
-import 'package:Claimit_app/Constant/constantroute.dart';
-import 'package:Claimit_app/Constant/helper.dart';
-import 'package:Claimit_app/Constant/screens.dart';
-import 'package:Claimit_app/Pages/Dashboard/widget/favourite.dart';
+import 'package:Claimit_app/core/constants/app_routes.dart';
+import 'package:Claimit_app/core/constants/screen_sizes.dart';
+import 'package:Claimit_app/core/storage/shared_pref.dart';
+import 'package:Claimit_app/features/dashboard/widgets/favourite.dart';
+import 'package:Claimit_app/features/dashboard/widgets/itempage.dart';
+import 'package:Claimit_app/features/dashboard/widgets/profile.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'package:Claimit_app/Pages/Dashboard/widget/itempage.dart';
-import 'package:Claimit_app/Pages/Dashboard/widget/profile.dart';
 import 'package:get/get.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:url_launcher/url_launcher.dart';

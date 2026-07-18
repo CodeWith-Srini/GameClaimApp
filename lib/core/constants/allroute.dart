@@ -1,8 +1,9 @@
+import 'package:Claimit_app/core/constants/app_routes.dart';
+import 'package:Claimit_app/features/dashboard/widgets/itemdetails.dart';
+
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:Claimit_app/Constant/constantroute.dart';
-import 'package:Claimit_app/Pages/Dashboard/dashboard.dart';
-import 'package:Claimit_app/Pages/Dashboard/widget/itemdetails.dart';
-import 'package:Claimit_app/Pages/Login/login_screen.dart';
+import 'package:Claimit_app/features/dashboard/screens/dashboard.dart';
+import 'package:Claimit_app/features/auth/screens/login_screen.dart';
 
 class Routes {
   static List<GetPage> allRoute = [
