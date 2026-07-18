@@ -1,14 +1,14 @@
 import 'dart:developer';
 
-import 'package:Claimit_app/core/constants/app_constants.dart';
-import 'package:Claimit_app/core/constants/app_routes.dart';
-import 'package:Claimit_app/core/storage/shared_pref.dart';
-import 'package:Claimit_app/features/dashboard/services/giveawayapi.dart';
+import 'package:claimit_app/core/constants/app_constants.dart';
+import 'package:claimit_app/core/constants/app_routes.dart';
+import 'package:claimit_app/core/storage/shared_pref.dart';
+import 'package:claimit_app/features/dashboard/services/giveawayapi.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:Claimit_app/features/dashboard/models/giveawaymodel.dart';
+import 'package:claimit_app/features/dashboard/models/giveawaymodel.dart';
 
 class SplashCtrl extends ChangeNotifier {
   bool loading = false;

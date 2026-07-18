@@ -1,9 +1,9 @@
-import 'package:Claimit_app/core/constants/app_routes.dart';
-import 'package:Claimit_app/core/constants/screen_sizes.dart';
-import 'package:Claimit_app/core/storage/shared_pref.dart';
-import 'package:Claimit_app/features/dashboard/widgets/favourite.dart';
-import 'package:Claimit_app/features/dashboard/widgets/itempage.dart';
-import 'package:Claimit_app/features/dashboard/widgets/profile.dart';
+import 'package:claimit_app/core/constants/app_routes.dart';
+import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/storage/shared_pref.dart';
+import 'package:claimit_app/features/dashboard/widgets/favourite.dart';
+import 'package:claimit_app/features/dashboard/widgets/itempage.dart';
+import 'package:claimit_app/features/dashboard/widgets/profile.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

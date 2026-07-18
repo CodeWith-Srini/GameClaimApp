@@ -1,11 +1,11 @@
-import 'package:Claimit_app/features/auth/controller/login_controller.dart';
-import 'package:Claimit_app/features/auth/controller/splash_controller.dart';
-import 'package:Claimit_app/features/dashboard/controller/dashboard_controller.dart';
+import 'package:claimit_app/features/auth/controller/login_controller.dart';
+import 'package:claimit_app/features/auth/controller/splash_controller.dart';
+import 'package:claimit_app/features/dashboard/controller/dashboard_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:Claimit_app/core/constants/allroute.dart';
-import 'package:Claimit_app/features/auth/screens/splash_screen.dart';
+import 'package:claimit_app/core/constants/allroute.dart';
+import 'package:claimit_app/features/auth/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

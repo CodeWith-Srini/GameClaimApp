@@ -1,9 +1,9 @@
-import 'package:Claimit_app/core/constants/app_routes.dart';
-import 'package:Claimit_app/features/dashboard/widgets/itemdetails.dart';
+import 'package:claimit_app/core/constants/app_routes.dart';
+import 'package:claimit_app/features/dashboard/widgets/itemdetails.dart';
 
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:Claimit_app/features/dashboard/screens/dashboard.dart';
-import 'package:Claimit_app/features/auth/screens/login_screen.dart';
+import 'package:claimit_app/features/dashboard/screens/dashboard.dart';
+import 'package:claimit_app/features/auth/screens/login_screen.dart';
 
 class Routes {
   static List<GetPage> allRoute = [
