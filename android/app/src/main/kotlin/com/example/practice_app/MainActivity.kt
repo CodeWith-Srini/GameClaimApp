@@ -1,4 +1,4 @@
-package com.app.Claimit_app
+package com.app.claimit_app
 
 import io.flutter.embedding.android.FlutterActivity
 

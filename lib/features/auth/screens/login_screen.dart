@@ -87,8 +87,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: Icons.mail_outline,
                       ),
                       validator: (val) {
-                        if (val == null || val.isEmpty)
+                        if (val == null || val.isEmpty) {
                           return 'Enter your email';
+                        }
                         if (!val.contains('@')) return 'Enter a valid email';
                         return null;
                       },
@@ -122,8 +123,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       validator: (val) {
-                        if (val == null || val.isEmpty)
+                        if (val == null || val.isEmpty) {
                           return 'Enter your password';
+                        }
                         if (val.length < 6) return 'Minimum 6 characters';
                         return null;
                       },

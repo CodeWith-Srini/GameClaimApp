@@ -3,7 +3,6 @@ import 'package:Claimit_app/features/auth/controller/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
