@@ -1,5 +1,5 @@
-import 'package:claimit_app/core/constants/route_names.dart';
-import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/extensions/screenextension.dart';
+import 'package:claimit_app/core/routes/route_names.dart';
 import 'package:claimit_app/core/storage/shared_pref.dart';
 import 'package:claimit_app/features/dashboard/widgets/favourite.dart';
 import 'package:claimit_app/features/dashboard/widgets/itempage.dart';
@@ -44,12 +44,12 @@ class Dashboardcrtl extends ChangeNotifier {
             borderRadius: BorderRadius.circular(20),
           ),
           content: SizedBox(
-            width: Screens.width(context) * 0.85,
-            height: Screens.padingHeight(context) * 0.2,
+            width: context.screenwidth * 0.85,
+            height: context.paddingHeight * 0.2,
             child: GlassContainer.clearGlass(
               padding: EdgeInsets.symmetric(
-                vertical: Screens.padingHeight(context) * 0.03,
-                horizontal: Screens.width(context) * 0.04,
+                vertical: context.paddingHeight * 0.03,
+                horizontal: context.screenwidth * 0.04,
               ),
               borderRadius: BorderRadius.circular(10),
               blur: 5,
@@ -69,7 +69,7 @@ class Dashboardcrtl extends ChangeNotifier {
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(height: Screens.padingHeight(context) * 0.01),
+                  SizedBox(height: context.paddingHeight * 0.01),
                   Text(
                     textAlign: TextAlign.center,
                     "Do you want to Logout",
@@ -79,7 +79,7 @@ class Dashboardcrtl extends ChangeNotifier {
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: Screens.padingHeight(context) * 0.02),
+                  SizedBox(height: context.paddingHeight * 0.02),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -88,8 +88,8 @@ class Dashboardcrtl extends ChangeNotifier {
                           Get.back();
                         },
                         child: Container(
-                          height: Screens.padingHeight(context) * 0.045,
-                          width: Screens.width(context) * 0.32,
+                          height: context.paddingHeight * 0.045,
+                          width: context.screenwidth * 0.32,
                           decoration: BoxDecoration(
                             border: Border.all(color: Color(0xffDDE4EB)),
                             borderRadius: BorderRadius.circular(10),
@@ -107,7 +107,7 @@ class Dashboardcrtl extends ChangeNotifier {
                           ),
                         ),
                       ),
-                      SizedBox(width: Screens.width(context) * 0.02),
+                      SizedBox(width: context.screenwidth * 0.02),
                       InkWell(
                         onTap: () async {
                           Get.back();
@@ -117,11 +117,11 @@ class Dashboardcrtl extends ChangeNotifier {
                           await HelperFunction.clearIsLoggedInSP();
 
                           notifyListeners();
-                          Get.offAllNamed(ConstantRoute.loginpage);
+                          Get.offAllNamed(RouteNames.loginpage);
                         },
                         child: Container(
-                          height: Screens.padingHeight(context) * 0.045,
-                          width: Screens.width(context) * 0.32,
+                          height: context.paddingHeight * 0.045,
+                          width: context.screenwidth * 0.32,
                           decoration: BoxDecoration(
                             color: Colors.redAccent,
                             borderRadius: BorderRadius.circular(10),

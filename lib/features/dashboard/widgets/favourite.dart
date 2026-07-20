@@ -1,5 +1,6 @@
 // screens/favourites_screen.dart
 import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/extensions/screenextension.dart';
 import 'package:claimit_app/features/dashboard/services/firestore_service.dart';
 import 'package:claimit_app/features/dashboard/widgets/itemdetails.dart';
 
@@ -54,19 +55,19 @@ class FavouritesScreen extends StatelessWidget {
         // Grid same as home
         return Container(
           padding: EdgeInsets.only(
-            // top: Screens.padingHeight(context) * 0.01,
-            left: Screens.width(context) * 0.03,
-            right: Screens.width(context) * 0.03,
+            // top: context.paddingHeight * 0.01,
+            left: context.screenwidth * 0.03,
+            right: context.screenwidth * 0.03,
           ),
           child: SizedBox(
-            height: Screens.padingHeight(context),
+            height: context.paddingHeight,
             child: GridView.builder(
               physics: BouncingScrollPhysics(),
               itemCount: items.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: Screens.padingHeight(context) * 0.03,
-                crossAxisSpacing: Screens.width(context) * 0.02,
+                mainAxisSpacing: context.paddingHeight * 0.03,
+                crossAxisSpacing: context.screenwidth * 0.02,
                 childAspectRatio: 1.1,
               ),
 
@@ -74,7 +75,7 @@ class FavouritesScreen extends StatelessWidget {
                 final lists = items[index];
                 return InkWell(
                   onTap: () {
-                    // Get.toNamed(ConstantRoute.itemdetails);
+                    // Get.toNamed(RouteNames.itemdetails);
                     Get.to(
                       () => ItemDetailsPage(gameData: lists),
                       transition: Transition.cupertino,
@@ -91,7 +92,7 @@ class FavouritesScreen extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: SizedBox(
-                            height: Screens.padingHeight(context) * 0.13,
+                            height: context.paddingHeight * 0.13,
                             child: Image.network(
                               lists['thumbnail'] ?? '',
                               fit: BoxFit.cover,
@@ -111,9 +112,9 @@ class FavouritesScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: Screens.padingHeight(context) * 0.01),
+                        SizedBox(height: context.paddingHeight * 0.01),
                         SizedBox(
-                          width: Screens.width(context) * 0.5,
+                          width: context.screenwidth * 0.5,
                           child: Text(
                             lists['title'] ?? '',
                             style: theme.textTheme.bodyMedium!.copyWith(

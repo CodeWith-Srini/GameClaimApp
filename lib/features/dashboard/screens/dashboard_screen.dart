@@ -1,4 +1,4 @@
-import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/extensions/screenextension.dart';
 import 'package:claimit_app/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -38,15 +38,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Positioned(
               bottom: 0,
               child: Container(
-                width: Screens.width(context),
+                width: context.screenwidth,
                 padding: EdgeInsets.symmetric(
-                  horizontal: Screens.width(context) * 0.05,
-                  vertical: Screens.padingHeight(context) * 0.01,
+                  horizontal: context.screenwidth * 0.05,
+                  vertical: context.paddingHeight * 0.01,
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: GlassContainer.clearGlass(
-                    height: Screens.padingHeight(context) * 0.06,
+                    height: context.paddingHeight * 0.06,
                     // width: 260,
                     borderRadius: BorderRadius.circular(10),
                     blur: 5,
@@ -56,8 +56,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     // filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
                     child: Container(
                       padding: EdgeInsets.symmetric(
-                        horizontal: Screens.width(context) * 0.05,
-                        vertical: Screens.padingHeight(context) * 0.015,
+                        horizontal: context.screenwidth * 0.05,
+                        vertical: context.paddingHeight * 0.015,
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),

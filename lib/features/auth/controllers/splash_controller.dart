@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:claimit_app/core/constants/app_constants.dart';
-import 'package:claimit_app/core/constants/route_names.dart';
+import 'package:claimit_app/core/routes/route_names.dart';
 import 'package:claimit_app/core/storage/shared_pref.dart';
 import 'package:claimit_app/features/dashboard/services/giveaway_api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,7 +22,7 @@ class SplashCtrl extends ChangeNotifier {
     var isLogged = await HelperFunction.getIsLoggedIn();
 
     if (isLogged == false || isLogged == null) {
-      Get.offAllNamed(ConstantRoute.loginpage);
+      Get.offAllNamed(RouteNames.loginpage);
     } else {
       var email = await HelperFunction.getMailSP();
       var password = await HelperFunction.getPasswordSP();
@@ -35,7 +35,7 @@ class SplashCtrl extends ChangeNotifier {
           password: password!,
         );
 
-        Get.offAllNamed(ConstantRoute.dashboard);
+        Get.offAllNamed(RouteNames.dashboard);
       } on FirebaseAuthException catch (e) {
         String message = 'Login failed';
 
@@ -59,7 +59,7 @@ class SplashCtrl extends ChangeNotifier {
             ),
           ),
         );
-        Get.offAllNamed(ConstantRoute.loginpage);
+        Get.offAllNamed(RouteNames.loginpage);
       }
     }
   }

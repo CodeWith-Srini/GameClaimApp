@@ -1,4 +1,5 @@
 import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/extensions/screenextension.dart';
 import 'package:claimit_app/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:claimit_app/features/dashboard/widgets/liked.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
         ),
         title: SizedBox(
           // color: Colors.red,
-          height: Screens.padingHeight(context) * 0.025,
+          height: context.paddingHeight * 0.025,
           child: Marquee(
             text: widget.gameData!['title'],
 
@@ -58,15 +59,13 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
       ),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: Screens.width(context) * 0.02,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: context.screenwidth * 0.02),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: Screens.padingHeight(context) * 0.25,
+                  height: context.paddingHeight * 0.25,
 
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
@@ -77,13 +76,13 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                   ),
                 ),
 
-                SizedBox(height: Screens.padingHeight(context) * 0.03),
+                SizedBox(height: context.paddingHeight * 0.03),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: Screens.width(context) * 0.75,
-                      height: Screens.padingHeight(context) * 0.05,
+                      width: context.screenwidth * 0.75,
+                      height: context.paddingHeight * 0.05,
 
                       child: GestureDetector(
                         onTap: () {
@@ -96,7 +95,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                           borderRadius: BorderRadius.circular(10),
 
                           child: GlassContainer.clearGlass(
-                            height: Screens.padingHeight(context) * 0.06,
+                            height: context.paddingHeight * 0.06,
 
                             borderRadius: BorderRadius.circular(10),
                             blur: 5,
@@ -128,12 +127,12 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                   ],
                 ),
 
-                SizedBox(height: Screens.padingHeight(context) * 0.02),
+                SizedBox(height: context.paddingHeight * 0.02),
 
                 ConstrainedBox(
                   // color: Colors.amberAccent,
                   constraints: BoxConstraints(
-                    maxHeight: Screens.padingHeight(context) * 0.15,
+                    maxHeight: context.paddingHeight * 0.15,
                   ),
 
                   child: Text(
@@ -148,7 +147,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: Screens.padingHeight(context) * 0.01),
+                SizedBox(height: context.paddingHeight * 0.01),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -163,10 +162,10 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: Screens.padingHeight(context) * 0.005),
+                    SizedBox(height: context.paddingHeight * 0.005),
                     SizedBox(
                       // color: Colors.red,
-                      width: Screens.width(context) * 0.9,
+                      width: context.screenwidth * 0.9,
                       child: Text(
                         '    ${widget.gameData!['platforms']}',
 
@@ -179,7 +178,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: Screens.padingHeight(context) * 0.01),
+                SizedBox(height: context.paddingHeight * 0.01),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -194,10 +193,10 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: Screens.padingHeight(context) * 0.005),
+                    SizedBox(height: context.paddingHeight * 0.005),
                     SizedBox(
                       // color: Colors.red,
-                      width: Screens.width(context) * 0.9,
+                      width: context.screenwidth * 0.9,
                       child: Text(
                         widget.gameData!['end_date'].toLowerCase() == 'n/a'
                             ? '    Soon'
@@ -212,7 +211,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: Screens.padingHeight(context) * 0.01),
+                SizedBox(height: context.paddingHeight * 0.01),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -227,14 +226,14 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: Screens.padingHeight(context) * 0.005),
+                    SizedBox(height: context.paddingHeight * 0.005),
                     Row(
                       children: [
-                        SizedBox(width: Screens.width(context) * 0.03),
+                        SizedBox(width: context.screenwidth * 0.03),
                         Container(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Screens.width(context) * 0.03,
-                            vertical: Screens.padingHeight(context) * 0.005,
+                            horizontal: context.screenwidth * 0.03,
+                            vertical: context.paddingHeight * 0.005,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.3),
@@ -254,7 +253,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: Screens.padingHeight(context) * 0.01),
+                SizedBox(height: context.paddingHeight * 0.01),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -269,7 +268,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: Screens.padingHeight(context) * 0.005),
+                    SizedBox(height: context.paddingHeight * 0.005),
                     RichText(
                       text: TextSpan(
                         children: [
@@ -306,7 +305,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                   ],
                 ),
 
-                SizedBox(height: Screens.padingHeight(context) * 0.01),
+                SizedBox(height: context.paddingHeight * 0.01),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -321,7 +320,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: Screens.padingHeight(context) * 0.005),
+                    SizedBox(height: context.paddingHeight * 0.005),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -331,7 +330,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                           children: [
                             SizedBox(
                               // color: Colors.red,
-                              width: Screens.width(context) * 0.3,
+                              width: context.screenwidth * 0.3,
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -357,12 +356,10 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: Screens.padingHeight(context) * 0.005,
-                            ),
+                            SizedBox(height: context.paddingHeight * 0.005),
                             SizedBox(
                               // color: Colors.red,
-                              width: Screens.width(context) * 0.3,
+                              width: context.screenwidth * 0.3,
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -404,9 +401,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                                 fontFamily: GoogleFonts.exo2().fontFamily,
                               ),
                             ),
-                            SizedBox(
-                              height: Screens.padingHeight(context) * 0.005,
-                            ),
+                            SizedBox(height: context.paddingHeight * 0.005),
                             Text(
                               ' ${widget.gameData!['users']}',
 

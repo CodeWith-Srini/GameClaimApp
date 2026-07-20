@@ -1,4 +1,4 @@
-import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/extensions/screenextension.dart';
 import 'package:claimit_app/features/auth/controllers/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child: Lottie.asset(
               'Assets/loading.json',
-              height: Screens.padingHeight(context) * 0.15,
+              height: context.paddingHeight * 0.15,
             ),
           ),
           Text(

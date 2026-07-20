@@ -1,4 +1,5 @@
 import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/extensions/screenextension.dart';
 import 'package:claimit_app/features/auth/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -24,8 +25,8 @@ class _LoginScreenState extends State<LoginScreen> {
           child: SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.symmetric(
-                horizontal: Screens.width(context) * 0.05,
-                vertical: Screens.padingHeight(context) * 0.02,
+                horizontal: context.screenwidth * 0.05,
+                vertical: context.paddingHeight * 0.02,
               ),
               child: Form(
                 key: controller.formKey,
@@ -38,8 +39,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           GlassContainer.clearGlass(
                             padding: EdgeInsets.all(10),
-                            width: Screens.width(context) * 0.17,
-                            height: Screens.padingHeight(context) * 0.085,
+                            width: context.screenwidth * 0.17,
+                            height: context.paddingHeight * 0.085,
 
                             borderRadius: BorderRadius.circular(40),
                             blur: 5,
@@ -48,9 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             elevation: 10,
                             child: Image.asset('Assets/launcher_icon.png'),
                           ),
-                          SizedBox(
-                            height: Screens.padingHeight(context) * 0.02,
-                          ),
+                          SizedBox(height: context.paddingHeight * 0.02),
                           Text(
                             'Welcome back 😎',
                             style: TextStyle(
@@ -60,9 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               letterSpacing: -0.5,
                             ),
                           ),
-                          SizedBox(
-                            height: Screens.padingHeight(context) * 0.01,
-                          ),
+                          SizedBox(height: context.paddingHeight * 0.01),
                           Text(
                             'Log in to Continue',
                             style: TextStyle(
@@ -74,10 +71,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
 
-                    SizedBox(height: Screens.padingHeight(context) * 0.05),
+                    SizedBox(height: context.paddingHeight * 0.05),
 
                     _buildLabel('Email'),
-                    SizedBox(height: Screens.padingHeight(context) * 0.02),
+                    SizedBox(height: context.paddingHeight * 0.02),
                     TextFormField(
                       controller: LoginController.emailController,
                       keyboardType: TextInputType.emailAddress,
@@ -95,10 +92,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
 
-                    SizedBox(height: Screens.padingHeight(context) * 0.035),
+                    SizedBox(height: context.paddingHeight * 0.035),
 
                     _buildLabel('Password'),
-                    SizedBox(height: Screens.padingHeight(context) * 0.02),
+                    SizedBox(height: context.paddingHeight * 0.02),
                     TextFormField(
                       controller: LoginController.passwordController,
                       obscureText: controller.obscurePassword,
@@ -131,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
 
-                    SizedBox(height: Screens.padingHeight(context) * 0.02),
+                    SizedBox(height: context.paddingHeight * 0.02),
 
                     InkWell(
                       onTap: () {
@@ -140,8 +137,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             : controller.loginWithEmail(context);
                       },
                       child: GlassContainer.clearGlass(
-                        height: Screens.padingHeight(context) * 0.065,
-                        width: Screens.width(context),
+                        height: context.paddingHeight * 0.065,
+                        width: context.screenwidth,
                         borderRadius: BorderRadius.circular(10),
                         blur: 5,
                         color: Colors.white.withOpacity(0.1),
@@ -151,9 +148,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child:
                               controllerwatch.isLoading
                                   ? SizedBox(
-                                    width: Screens.width(context) * 0.06,
-                                    height:
-                                        Screens.padingHeight(context) * 0.03,
+                                    width: context.screenwidth * 0.06,
+                                    height: context.paddingHeight * 0.03,
                                     child: CircularProgressIndicator(
                                       strokeWidth: 3,
                                       color: Colors.white,

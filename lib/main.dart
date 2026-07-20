@@ -3,9 +3,9 @@ import 'package:claimit_app/features/auth/controllers/splash_controller.dart';
 import 'package:claimit_app/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:claimit_app/core/constants/app_router.dart';
+import 'package:claimit_app/core/routes/app_router.dart';
 import 'package:claimit_app/features/auth/screens/splash_screen.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -30,14 +30,14 @@ class MyApp extends StatelessWidget {
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(
               alwaysUse24HourFormat: false,
-              textScaler: TextScaler.linear(0.95),
+              textScaler: const TextScaler.linear(0.95),
             ),
             child: child!,
           );
         },
         debugShowCheckedModeBanner: false,
         // theme: themcon.themename,
-        home: SplashScreen(),
+        home: const SplashScreen(),
         getPages: Routes.allRoute,
       ),
     );

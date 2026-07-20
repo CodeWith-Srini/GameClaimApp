@@ -1,5 +1,6 @@
 import 'package:claimit_app/core/constants/app_constants.dart';
 import 'package:claimit_app/core/constants/screen_sizes.dart';
+import 'package:claimit_app/core/extensions/screenextension.dart';
 import 'package:claimit_app/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,18 +21,16 @@ class _ProfilePageState extends State<ProfilePage> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: Screens.width(context) * 0.04,
-          ),
+          padding: EdgeInsets.symmetric(horizontal: context.screenwidth * 0.04),
           child: Column(
             children: [
-              SizedBox(height: Screens.padingHeight(context) * 0.03),
+              SizedBox(height: context.paddingHeight * 0.03),
               Row(
                 children: [
                   Image.asset('Assets/profile.png', scale: 1.5),
-                  SizedBox(width: Screens.width(context) * 0.02),
+                  SizedBox(width: context.screenwidth * 0.02),
                   SizedBox(
-                    width: Screens.width(context) * 0.7,
+                    width: context.screenwidth * 0.7,
                     child: Text(
                       ConstantValues.usermail!,
                       style: theme.textTheme.bodyMedium!.copyWith(
@@ -43,7 +42,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
-              SizedBox(height: Screens.padingHeight(context) * 0.03),
+              SizedBox(height: context.paddingHeight * 0.03),
               InkWell(
                 onTap: () {
                   context.read<Dashboardcrtl>().openLink(
@@ -53,9 +52,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Row(
                   children: [
                     Image.asset('Assets/git.png', scale: 1.5),
-                    SizedBox(width: Screens.width(context) * 0.02),
+                    SizedBox(width: context.screenwidth * 0.02),
                     SizedBox(
-                      width: Screens.width(context) * 0.7,
+                      width: context.screenwidth * 0.7,
                       child: Text(
                         'View In GitHub',
                         style: theme.textTheme.bodyMedium!.copyWith(
@@ -68,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
               ),
-              SizedBox(height: Screens.padingHeight(context) * 0.03),
+              SizedBox(height: context.paddingHeight * 0.03),
               Row(
                 children: [
                   ClipRRect(
@@ -79,9 +78,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       scale: 1.5,
                     ),
                   ),
-                  SizedBox(width: Screens.width(context) * 0.02),
+                  SizedBox(width: context.screenwidth * 0.02),
                   SizedBox(
-                    width: Screens.width(context) * 0.7,
+                    width: context.screenwidth * 0.7,
 
                     child: Text(
                       'Buy Me A Coffee',
@@ -94,7 +93,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
-              SizedBox(height: Screens.padingHeight(context) * 0.03),
+              SizedBox(height: context.paddingHeight * 0.03),
               InkWell(
                 onTap: () {
                   context.read<Dashboardcrtl>().alertdialog(context);
@@ -109,9 +108,9 @@ class _ProfilePageState extends State<ProfilePage> {
                         scale: 1.5,
                       ),
                     ),
-                    SizedBox(width: Screens.width(context) * 0.02),
+                    SizedBox(width: context.screenwidth * 0.02),
                     SizedBox(
-                      width: Screens.width(context) * 0.7,
+                      width: context.screenwidth * 0.7,
 
                       child: Text(
                         'Log Out',

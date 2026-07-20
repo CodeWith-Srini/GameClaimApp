@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
 class Screens {
-  static double bodyheight(BuildContext context) {
-    return MediaQuery.of(context).size.height -
-        AppBar().preferredSize.height -
-        MediaQuery.of(context).padding.top;
+  static double fullwidth(BuildContext context) {
+    return MediaQuery.of(context).size.width;
   }
 
   static double fullHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
   }
 
-  static double padingHeight(BuildContext context) {
+  static double bodyheight(BuildContext context) {
     return MediaQuery.of(context).size.height -
+        kToolbarHeight -
         MediaQuery.of(context).padding.top;
   }
 
-  static double width(BuildContext context) {
-    return MediaQuery.of(context).size.width;
+  static double paddingHeight(BuildContext context) {
+    return MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top;
   }
 }

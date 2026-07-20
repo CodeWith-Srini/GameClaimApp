@@ -1,5 +1,5 @@
 import 'package:claimit_app/core/constants/app_constants.dart';
-import 'package:claimit_app/core/constants/route_names.dart';
+import 'package:claimit_app/core/routes/route_names.dart';
 import 'package:claimit_app/core/storage/shared_pref.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class LoginController extends ChangeNotifier {
 
       // Navigate to home screen after login //
 
-      Get.offAllNamed(ConstantRoute.dashboard);
+      Get.offAllNamed(RouteNames.dashboard);
     } on FirebaseAuthException catch (e) {
       String message = 'Login failed';
 
