@@ -1,5 +1,6 @@
-import 'package:claimit_app/features/auth/controllers/login_controller.dart';
+import 'package:claimit_app/features/auth/controllers/auth_controller.dart';
 import 'package:claimit_app/features/auth/controllers/splash_controller.dart';
+import 'package:claimit_app/features/auth/data/auth_repository.dart';
 import 'package:claimit_app/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +8,15 @@ import 'package:claimit_app/core/routes/app_router.dart';
 import 'package:claimit_app/features/auth/screens/splash_screen.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await Supabase.initialize(
+    url: 'https://fgvgmxcxksatgwrhzvdc.supabase.co',
+    publishableKey: 'sb_publishable_NEWQh8g-5_9Hx_hJyLCwyQ_zcCBzjqZ',
+  );
   runApp(const MyApp());
 }
 
@@ -22,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SplashCtrl()),
-        ChangeNotifierProvider(create: (_) => LoginController()),
+        ChangeNotifierProvider(create: (_) => AuthController(AuthRepository())),
         ChangeNotifierProvider(create: (_) => Dashboardcrtl()),
       ],
       child: GetMaterialApp(

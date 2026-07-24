@@ -1,23 +1,17 @@
-import 'dart:developer';
-
-import 'package:claimit_app/core/constants/screen_sizes.dart';
 import 'package:claimit_app/core/extensions/screenextension.dart';
 import 'package:claimit_app/features/auth/controllers/auth_controller.dart';
-import 'package:flutter/gestures.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:glass_kit/glass_kit.dart';
 import 'package:provider/provider.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = context.read<AuthController>();
@@ -43,16 +37,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           GlassContainer.clearGlass(
                             padding: EdgeInsets.all(10),
-                            width: context.screenwidth * 0.4,
-                            height: context.paddingHeight * 0.2,
+                            width: context.screenwidth * 0.17,
+                            height: context.paddingHeight * 0.085,
 
-                            borderRadius: BorderRadius.circular(100),
+                            borderRadius: BorderRadius.circular(40),
                             blur: 5,
                             color: Colors.white.withOpacity(0.1),
                             borderWidth: 0.5,
-                            // borderColor: Colors.amber,
                             elevation: 10,
-                            child: Image.asset('Assets/icon.png'),
+                            child: Image.asset('Assets/launcher_icon.png'),
                           ),
                           SizedBox(height: context.paddingHeight * 0.02),
                           Text(
@@ -81,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     _buildLabel('Email'),
                     SizedBox(height: context.paddingHeight * 0.02),
                     TextFormField(
-                      controller: controller.emailController,
+                      controller: controller.mailregistercontroller,
                       keyboardType: TextInputType.emailAddress,
                       style: const TextStyle(color: Colors.white, fontSize: 15),
                       decoration: _inputDecoration(
@@ -102,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     _buildLabel('Password'),
                     SizedBox(height: context.paddingHeight * 0.02),
                     TextFormField(
-                      controller: controller.passwordController,
+                      controller: controller.passwordregistercontroller,
                       obscureText: controller.obscurePassword,
                       style: const TextStyle(color: Colors.white, fontSize: 15),
                       decoration: _inputDecoration(
@@ -137,7 +130,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     InkWell(
                       onTap: () {
-                        controllerwatch.isLoading ? null : controller.login();
+                        // controllerwatch.isLoading
+                        //     ? null
+                        //     : controller.loginWithEmail(context);
                       },
                       child: GlassContainer.clearGlass(
                         height: context.paddingHeight * 0.065,
@@ -166,35 +161,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                       color: Colors.white,
                                     ),
                                   ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: context.paddingHeight * 0.02),
-
-                    Center(
-                      child: RichText(
-                        text: TextSpan(
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                          children: [
-                            const TextSpan(text: "Don't Have An Account? "),
-                            TextSpan(
-                              recognizer:
-                                  TapGestureRecognizer()
-                                    ..onTap = () {
-                                      log('message');
-                                    },
-                              text: "Register Here",
-                              style: const TextStyle(
-                                color: Colors.blue,
-                                decoration: TextDecoration.underline,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                     ),
